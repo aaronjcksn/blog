@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require 'functions.php';
 use Blog\DB;
@@ -9,8 +9,8 @@ $conn = DB\connect($config);
 if ( !$conn ) die('Problem connecting to the db.');
 
 // fetch all the posts
-$posts = DB\get('posts', $conn);
+$posts = DB\query('SELECT * FROM posts WHERE id = :id', 
+	array('id' => $_GET['id']), 
+	$conn);
 
-// filter through and display on page
-$view_path = 'views/index.view.php';
-include 'views/layout.php';
+print_r($posts);	
