@@ -14,7 +14,7 @@ $post = DB\query('SELECT * FROM posts WHERE id = :id LIMIT 1',
 	$conn)[0];
 
 if ( $post ) {
-	$post = $post[0];
+	$post = $post;
 	// filter through and display on page
 	$view_path = 'views/single.view.php';
 	include 'views/layout.php';	
