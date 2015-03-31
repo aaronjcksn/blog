@@ -9,8 +9,15 @@ $conn = DB\connect($config);
 if ( !$conn ) die('Problem connecting to the db.');
 
 // fetch all the posts
-$posts = DB\query('SELECT * FROM posts WHERE id = :id', 
+$post = DB\query('SELECT * FROM posts WHERE id = :id LIMIT 1', 
 	array('id' => $_GET['id']), 
-	$conn);
+	$conn)[0];
 
-print_r($posts);	
+if ( $post ) {
+	$post = $post[0];
+	// filter through and display on page
+	$view_path = 'views/single.view.php';
+	include 'views/layout.php';	
+} else {
+	header('location:/');
+}
