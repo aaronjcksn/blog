@@ -1,12 +1,7 @@
 <?php 
 
-require 'functions.php';
+require 'blog.php';
 use Blog\DB;
-
-// connect to db
-$conn = DB\connect($config);
-
-if ( !$conn ) die('Problem connecting to the db.');
 
 // fetch all the posts
 $posts = DB\get('posts', $conn);
