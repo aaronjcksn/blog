@@ -4,15 +4,14 @@ require 'blog.php';
 use Blog\DB;
 
 // fetch all the posts
-$post = DB\query('SELECT * FROM posts WHERE id = :id LIMIT 1', 
-	array('id' => $_GET['id']), 
-	$conn)[0];
+$post = DB\get_by_id( (int)$_GET['id'], $conn );
 
 if ( $post ) {
-	$post = $post;
-	// filter through and display on page
-	$view_path = 'views/single.view.php';
-	include 'views/layout.php';	
+	$post = $post[0];
+
+	view('single', array(
+		'post' => $post
+	));	
 } else {
 	header('location:/');
 }

@@ -1,7 +1,8 @@
 <?php 
 
 require 'functions.php';
-use Blog\DB;
+require 'db.php';
 
 // connect to db
-$conn = DB\connect($config);
+$conn = Blog\DB\connect($config);
+if ( !$conn ) die('Problem connecting to the db.');

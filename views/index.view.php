@@ -1,7 +1,6 @@
 <h1>The Blog</h1>
 
 <?php foreach($posts as $post ) : ?>
-	<?php print_r($post); ?>
 	<article>
 		<h2><a href="single.php?id=<?= $post['id']; ?>">
 			<?= $post['title']; ?></a>
