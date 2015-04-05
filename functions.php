@@ -6,7 +6,7 @@ function view ($path, $data = null ) {
 		extract($data);
 	}
 
-	include "views/$path.view.php";
-}	
+	$path = $path . '.view.php';
 
-//view('single', $data);
+	include "views/layout.php";
+}	
