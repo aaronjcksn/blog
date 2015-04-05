@@ -7,8 +7,8 @@
 	.container { width: 600px; margin: 0 auto; }
 	form ul { padding: 0; }
 	form li { list-style: none; }
-	form input, form textarea { margin-bottom: 1.5em; width: 100%; }
-	form textarea { width: 100%; height: 350px; }
+	form input[type="text"], form textarea { margin-bottom: 1.5em; width: 100%; }
+	form textarea { height: 350px; }
 	label { display: block; }
 	</style>
 </head>

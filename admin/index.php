@@ -1,5 +1,18 @@
 <?php
 
-require '../blog.php';
+require '../blog.php'; 
 
-view('admin/create');
+if ($_SERVER['REQUEST_METHOD'] === 'POST' ) {
+	$title = $_POST['title'];
+	$body = $_POST['body'];
+
+	if ( empty($title) || empty($body) ) {
+		$status = 'Please fill out both inputs.';
+	}
+} else {
+	$status = ' ';
+}
+
+view('admin/create', array(
+	'status' => $status
+));
