@@ -47,5 +47,5 @@ function get_by_id($id, $conn) {
 		array('id' => $id), 
 		$conn);
 
-	if ( $query ) $query->fetchAll();
+	if ( $query ) return $query->fetchAll();
 }
