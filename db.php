@@ -25,9 +25,7 @@ function query($query, $bindings, $conn) {
 	$stmt = $conn->prepare($query);
 	$stmt->execute($bindings);
 
-	$results = $stmt->fetchAll();
-
-	return $results ? $results : false;
+	return $stmt;
 }
 
 function get($tableName, $conn, $limit = 10) {
@@ -44,8 +42,10 @@ function get($tableName, $conn, $limit = 10) {
 }
 
 function get_by_id($id, $conn) {
-	return query(
+	$query = query(
 		'SELECT * FROM posts WHERE id = :id LIMIT 1', 
 		array('id' => $id), 
 		$conn);
+
+	return $query->fetchAll();
 }
